@@ -1,13 +1,17 @@
 package com.impactprogrammer.android.popularmovies;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 
-public class MovieListActivity extends AppCompatActivity {
+/**
+ * Hosts a {@link MovieListFragment} that shows a list of the most popular or highest rated movies.
+ */
+public class MovieListActivity extends SingleFragmentActivity {
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_list);
+    protected Fragment createFragment() {
+        return MovieListFragment.newInstance();
     }
 }

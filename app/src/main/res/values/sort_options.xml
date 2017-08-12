@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sort_options_descriptions">
+        <item>By Highest Rating</item> <!-- id = 0 = SORT_ORDER_BY_RATING -->
+        <item>By Most Popular</item>   <!-- id = 1 = SORT_ORDER_BY_POPULARITY -->
+    </string-array>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+           xmlns:app="http://schemas.android.com/apk/res-auto"
+           android:id="@+id/posterImageView"
+           android:layout_width="190dp"
+           android:layout_height="285dp"
+           android:contentDescription="@string/a_movie_poster"
+           android:padding="2dp"
+           android:scaleType="centerCrop"
+           app:srcCompat="@drawable/placeholder_image">
+
+</ImageView>
