@@ -53,20 +53,20 @@ public final class MovieUtils {
     }
 
     /**
-     * Returns the sort_by query parameter string to be appended to the movie list request {@link Uri}
+     * Returns the sortBy path parameter string to be appended to the movie list request {@link Uri}
      * which corresponds to sortOrder
      *
-     * @param sortOrder the sort order for which the corresponding sort_by query parameter will be returned.
+     * @param sortOrder the sort order for which the corresponding sortBy path parameter will be returned.
      *                  Must be one of the SORT_BY constants defined in {@link MovieUtils}.
-     * @return the sort_by query parameter string corresponding to sortOrder
+     * @return the sortBy path parameter string corresponding to sortOrder
      */
     @Nullable
     public static String getSortByQueryParameter(int sortOrder) {
         final String sortBy;
         if (sortOrder == SORT_ORDER_BY_RATING) {
-            sortBy = "vote_average.desc";
+            sortBy = "top_rated";
         } else if (sortOrder == SORT_ORDER_BY_POPULARITY) {
-            sortBy = "popularity.desc";
+            sortBy = "popular";
         } else {
             throw new AssertionError("unknown sort order");
         }
