@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.impactprogrammer.android.popularmovies.moviedb.Movie;
 import com.impactprogrammer.android.popularmovies.moviedb.MovieUtils;
 
@@ -20,12 +22,14 @@ import com.impactprogrammer.android.popularmovies.moviedb.MovieUtils;
  * Shows details about a single {@link Movie}.
  */
 public class MovieDetailsFragment extends Fragment {
+    private final Gson gson = new GsonBuilder()
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+            .create();
     private ImageView posterImageView;
     private TextView titleTextView;
     private TextView ratingTextView;
     private TextView releaseDateTextView;
     private TextView overviewTextView;
-
     private Movie movie;
 
     /**
@@ -44,7 +48,7 @@ public class MovieDetailsFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         String movieExtra = getActivity().getIntent().getStringExtra(Intent.EXTRA_TEXT);
-        movie = new Gson().fromJson(movieExtra, Movie.class);
+        movie = gson.fromJson(movieExtra, Movie.class);
     }
 
     /**

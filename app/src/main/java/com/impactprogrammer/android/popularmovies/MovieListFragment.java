@@ -15,7 +15,9 @@ import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.impactprogrammer.android.popularmovies.moviedb.Movie;
 import com.impactprogrammer.android.popularmovies.moviedb.MovieImageConfiguration;
 import com.impactprogrammer.android.popularmovies.moviedb.MovieImageConfigurationManager;
@@ -41,6 +43,10 @@ public class MovieListFragment extends Fragment implements
         OnNewMovieImageConfigurationReceivedListener {
     private static final String LOG_TAG = MovieListFragment.class.getSimpleName();
     private static final String THE_MOVIE_DB_BASE_URL = "https://api.themoviedb.org/3/";
+
+    private final Gson gson = new GsonBuilder()
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+            .create();
     @Nullable
     private GridLayoutManager layoutManager;
     private MovieListManager movieListManager;
@@ -77,7 +83,7 @@ public class MovieListFragment extends Fragment implements
         movieListManager = MovieListManager.getInstance(getActivity());
 
         Retrofit retrofit = new Retrofit.Builder()
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .baseUrl(THE_MOVIE_DB_BASE_URL)
                 .build();
         movieDB = retrofit.create(MovieDB.class);
@@ -156,7 +162,6 @@ public class MovieListFragment extends Fragment implements
     @Override
     public void onMovieItemClicked(final Movie movie) {
         Intent intent = new Intent(getActivity(), MovieDetailsActivity.class);
-        Gson gson = new Gson();
         String movieJson = gson.toJson(movie);
         intent.putExtra(Intent.EXTRA_TEXT, movieJson);
         startActivity(intent);

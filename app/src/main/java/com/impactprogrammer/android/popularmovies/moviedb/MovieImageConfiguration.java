@@ -8,84 +8,84 @@ import java.util.List;
  */
 
 public class MovieImageConfiguration {
-    private final String base_url;
-    private final String secure_base_url;
-    private final List<String> backdrop_sizes;
-    private final List<String> poster_sizes;
-    private final List<String> logo_sizes;
-    private final List<String> profile_sizes;
-    private final List<String> still_sizes;
+    private final String baseUrl;
+    private final String secureBaseUrl;
+    private final List<String> backdropSizes;
+    private final List<String> posterSizes;
+    private final List<String> logoSizes;
+    private final List<String> profileSizes;
+    private final List<String> stillSizes;
 
     public MovieImageConfiguration(
-            String base_url,
-            String secure_base_url,
-            List<String> backdrop_sizes,
-            List<String> poster_sizes,
-            List<String> logo_sizes,
-            List<String> profile_sizes,
-            List<String> still_sizes) {
-        this.base_url = base_url;
-        this.secure_base_url = secure_base_url;
-        this.backdrop_sizes = backdrop_sizes;
-        this.poster_sizes = poster_sizes;
-        this.logo_sizes = logo_sizes;
-        this.profile_sizes = profile_sizes;
-        this.still_sizes = still_sizes;
+            String baseUrl,
+            String secureBaseUrl,
+            List<String> backdropSizes,
+            List<String> posterSizes,
+            List<String> logoSizes,
+            List<String> profileSizes,
+            List<String> stillSizes) {
+        this.baseUrl = baseUrl;
+        this.secureBaseUrl = secureBaseUrl;
+        this.backdropSizes = backdropSizes;
+        this.posterSizes = posterSizes;
+        this.logoSizes = logoSizes;
+        this.profileSizes = profileSizes;
+        this.stillSizes = stillSizes;
     }
 
     public String getBaseUrl() {
-        return base_url;
+        return baseUrl;
     }
 
     public String getSecureBaseUrl() {
-        return secure_base_url;
+        return secureBaseUrl;
     }
 
     /**
-     * @return unmodifiable list of backdrop_sizes
+     * @return unmodifiable list of backdropSizes
      */
     public List<String> getBackdropSizes() {
-        return Collections.unmodifiableList(backdrop_sizes);
+        return Collections.unmodifiableList(backdropSizes);
     }
 
     /**
-     * @return unmodifiable list of poster_sizes
+     * @return unmodifiable list of posterSizes
      */
     public List<String> getPosterSizes() {
-        return Collections.unmodifiableList(poster_sizes);
+        return Collections.unmodifiableList(posterSizes);
     }
 
     /**
-     * @return unmodifiable list of logo_sizes
+     * @return unmodifiable list of logoSizes
      */
     public List<String> getLogoSizes() {
-        return Collections.unmodifiableList(logo_sizes);
+        return Collections.unmodifiableList(logoSizes);
     }
 
     /**
-     * @return unmodifiable list of profile_sizes
+     * @return unmodifiable list of profileSizes
      */
     public List<String> getProfileSizes() {
-        return Collections.unmodifiableList(profile_sizes);
+        return Collections.unmodifiableList(profileSizes);
     }
 
     /**
-     * @return unmodifiable list of still_sizes
+     * @return unmodifiable list of stillSizes
      */
     public List<String> getStillSizes() {
-        return Collections.unmodifiableList(still_sizes);
+        return Collections.unmodifiableList(stillSizes);
     }
 
     @Override
     public String toString() {
         return "MovieImageConfiguration{" +
-                "base_url='" + base_url + '\'' +
-                ", secure_base_url='" + secure_base_url + '\'' +
-                ", backdrop_sizes=" + backdrop_sizes +
-                ", poster_sizes=" + poster_sizes +
-                ", logo_sizes=" + logo_sizes +
-                ", profile_sizes=" + profile_sizes +
-                ", still_sizes=" + still_sizes +
+                "baseUrl='" + baseUrl + '\'' +
+                ", secureBaseUrl='" + secureBaseUrl + '\'' +
+                ", backdropSizes=" + backdropSizes +
+                ", posterSizes=" + posterSizes +
+                ", logoSizes=" + logoSizes +
+                ", profileSizes=" + profileSizes +
+                ", stillSizes=" + stillSizes +
                 '}';
     }
 
@@ -96,29 +96,29 @@ public class MovieImageConfiguration {
 
         MovieImageConfiguration that = (MovieImageConfiguration) o;
 
-        if (base_url != null ? !base_url.equals(that.base_url) : that.base_url != null)
+        if (baseUrl != null ? !baseUrl.equals(that.baseUrl) : that.baseUrl != null)
             return false;
-        if (secure_base_url != null ? !secure_base_url.equals(that.secure_base_url) : that.secure_base_url != null)
+        if (secureBaseUrl != null ? !secureBaseUrl.equals(that.secureBaseUrl) : that.secureBaseUrl != null)
             return false;
-        if (backdrop_sizes != null ? !backdrop_sizes.equals(that.backdrop_sizes) : that.backdrop_sizes != null)
+        if (backdropSizes != null ? !backdropSizes.equals(that.backdropSizes) : that.backdropSizes != null)
             return false;
-        if (poster_sizes != null ? !poster_sizes.equals(that.poster_sizes) : that.poster_sizes != null)
+        if (posterSizes != null ? !posterSizes.equals(that.posterSizes) : that.posterSizes != null)
             return false;
-        if (logo_sizes != null ? !logo_sizes.equals(that.logo_sizes) : that.logo_sizes != null)
+        if (logoSizes != null ? !logoSizes.equals(that.logoSizes) : that.logoSizes != null)
             return false;
-        return profile_sizes != null ? profile_sizes.equals(that.profile_sizes) : that.profile_sizes == null && (still_sizes != null ? still_sizes.equals(that.still_sizes) : that.still_sizes == null);
+        return profileSizes != null ? profileSizes.equals(that.profileSizes) : that.profileSizes == null && (stillSizes != null ? stillSizes.equals(that.stillSizes) : that.stillSizes == null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = base_url != null ? base_url.hashCode() : 0;
-        result = 31 * result + (secure_base_url != null ? secure_base_url.hashCode() : 0);
-        result = 31 * result + (backdrop_sizes != null ? backdrop_sizes.hashCode() : 0);
-        result = 31 * result + (poster_sizes != null ? poster_sizes.hashCode() : 0);
-        result = 31 * result + (logo_sizes != null ? logo_sizes.hashCode() : 0);
-        result = 31 * result + (profile_sizes != null ? profile_sizes.hashCode() : 0);
-        result = 31 * result + (still_sizes != null ? still_sizes.hashCode() : 0);
+        int result = baseUrl != null ? baseUrl.hashCode() : 0;
+        result = 31 * result + (secureBaseUrl != null ? secureBaseUrl.hashCode() : 0);
+        result = 31 * result + (backdropSizes != null ? backdropSizes.hashCode() : 0);
+        result = 31 * result + (posterSizes != null ? posterSizes.hashCode() : 0);
+        result = 31 * result + (logoSizes != null ? logoSizes.hashCode() : 0);
+        result = 31 * result + (profileSizes != null ? profileSizes.hashCode() : 0);
+        result = 31 * result + (stillSizes != null ? stillSizes.hashCode() : 0);
         return result;
     }
 }

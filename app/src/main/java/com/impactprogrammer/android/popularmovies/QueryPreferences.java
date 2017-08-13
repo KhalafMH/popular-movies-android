@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.impactprogrammer.android.popularmovies.moviedb.MovieImageConfiguration;
 import com.impactprogrammer.android.popularmovies.moviedb.MovieList;
 import com.impactprogrammer.android.popularmovies.moviedb.MovieUtils;
@@ -18,6 +20,9 @@ public class QueryPreferences {
     private static final String KEY_MOVIE_LIST_BY_RATING = "MOVIE_LIST_BY_RATING";
     private static final String KEY_MOVIE_LIST_BY_POPULARITY = "MOVIE_LIST_BY_POPULARITY";
     private static final String KEY_SORT_ORDER = "SORT_ORDER";
+    private static final Gson gson = new GsonBuilder()
+            .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+            .create();
 
     private static int sortOrder = -1;
 
@@ -57,7 +62,7 @@ public class QueryPreferences {
      */
     @Nullable
     public static MovieImageConfiguration getMovieImageConfiguration(Context context) {
-        return new Gson().fromJson(getSharedPreferences(context)
+        return gson.fromJson(getSharedPreferences(context)
                 .getString(KEY_CACHED_MOVIE_IMAGE_CONFIGURATION, null), MovieImageConfiguration.class);
     }
 
@@ -69,7 +74,7 @@ public class QueryPreferences {
      */
     public static void setMovieImageConfiguration(Context context, @Nullable MovieImageConfiguration configuration) {
         getSharedPreferences(context).edit()
-                .putString(KEY_CACHED_MOVIE_IMAGE_CONFIGURATION, new Gson().toJson(configuration))
+                .putString(KEY_CACHED_MOVIE_IMAGE_CONFIGURATION, gson.toJson(configuration))
                 .apply();
     }
 
@@ -81,7 +86,7 @@ public class QueryPreferences {
      */
     @Nullable
     public static MovieList getMovieListByRating(Context context) {
-        return new Gson().fromJson(
+        return gson.fromJson(
                 getSharedPreferences(context).getString(KEY_MOVIE_LIST_BY_RATING, null),
                 MovieList.class
         );
@@ -95,7 +100,7 @@ public class QueryPreferences {
      */
     @Nullable
     public static MovieList getMovieListByPopularity(Context context) {
-        return new Gson().fromJson(
+        return gson.fromJson(
                 getSharedPreferences(context).getString(KEY_MOVIE_LIST_BY_POPULARITY, null),
                 MovieList.class
         );
@@ -109,7 +114,7 @@ public class QueryPreferences {
      */
     public static void setMovieListByRating(Context context, @Nullable MovieList movieList) {
         getSharedPreferences(context).edit()
-                .putString(KEY_MOVIE_LIST_BY_RATING, new Gson().toJson(movieList))
+                .putString(KEY_MOVIE_LIST_BY_RATING, gson.toJson(movieList))
                 .apply();
     }
 
@@ -121,7 +126,7 @@ public class QueryPreferences {
      */
     public static void setMovieListByPopularity(Context context, @Nullable MovieList movieList) {
         getSharedPreferences(context).edit()
-                .putString(KEY_MOVIE_LIST_BY_POPULARITY, new Gson().toJson(movieList))
+                .putString(KEY_MOVIE_LIST_BY_POPULARITY, gson.toJson(movieList))
                 .apply();
     }
 

@@ -9,14 +9,14 @@ import java.util.List;
 
 public class MovieList {
     private final long page;
-    private final long total_results;
-    private final long total_pages;
+    private final long totalResults;
+    private final long totalPages;
     private final List<Movie> results;
 
-    public MovieList(long page, long total_results, long total_pages, List<Movie> results) {
+    public MovieList(long page, long totalResults, long totalPages, List<Movie> results) {
         this.page = page;
-        this.total_results = total_results;
-        this.total_pages = total_pages;
+        this.totalResults = totalResults;
+        this.totalPages = totalPages;
         this.results = results;
     }
 
@@ -25,11 +25,11 @@ public class MovieList {
     }
 
     public long getTotalResults() {
-        return total_results;
+        return totalResults;
     }
 
     public long getTotalPages() {
-        return total_pages;
+        return totalPages;
     }
 
     /**
@@ -43,8 +43,8 @@ public class MovieList {
     public String toString() {
         return "MovieList{" +
                 "page=" + page +
-                ", total_results=" + total_results +
-                ", total_pages=" + total_pages +
+                ", totalResults=" + totalResults +
+                ", totalPages=" + totalPages +
                 ", results=" + results +
                 '}';
     }
@@ -57,16 +57,16 @@ public class MovieList {
         MovieList movieList = (MovieList) o;
 
         if (page != movieList.page) return false;
-        if (total_results != movieList.total_results) return false;
-        return total_pages == movieList.total_pages && (results != null ? results.equals(movieList.results) : movieList.results == null);
+        if (totalResults != movieList.totalResults) return false;
+        return totalPages == movieList.totalPages && (results != null ? results.equals(movieList.results) : movieList.results == null);
 
     }
 
     @Override
     public int hashCode() {
         int result = (int) (page ^ (page >>> 32));
-        result = 31 * result + (int) (total_results ^ (total_results >>> 32));
-        result = 31 * result + (int) (total_pages ^ (total_pages >>> 32));
+        result = 31 * result + (int) (totalResults ^ (totalResults >>> 32));
+        result = 31 * result + (int) (totalPages ^ (totalPages >>> 32));
         result = 31 * result + (results != null ? results.hashCode() : 0);
         return result;
     }
